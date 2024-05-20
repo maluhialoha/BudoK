@@ -1,0 +1,16 @@
+CREATE TABLE Level (
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL);
+
+INSERT INTO Level (id, name)
+VALUES (1,  "Facile"),
+(2,  "Moyen"),
+(3, "Difficile"),
+(4, "Débutant"),
+(5, "Intermédiaire"),
+(6, "Avancé");
+
+getType:
+SELECT *
+FROM Level
+WHERE id = :id;

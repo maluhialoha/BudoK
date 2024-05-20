@@ -1,0 +1,13 @@
+CREATE TABLE SequenceSections (
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL);
+
+INSERT INTO SequenceSections (id, name)
+VALUES (1,  "Échauffement"),
+(2,  "Partie Principale"),
+(3, "Étirements");
+
+getSequenceSection:
+SELECT *
+FROM SequenceSections
+WHERE id = :id;

@@ -1,0 +1,51 @@
+CREATE TABLE Actions (
+  id INTEGER PRIMARY KEY NOT NULL,
+  number  INTEGER,
+  description TEXT NOT NULL,
+  length INTEGER,
+  action_type_id INTEGER NOT NULL,
+
+      FOREIGN KEY(action_type_id)
+            REFERENCES ActionsType(id)
+            ON DELETE CASCADE
+);
+
+INSERT INTO Actions (id, number, description, action_type_id)
+VALUES (1, 10, "pompes lentes", 1 ),
+(2, 10, "pompe reste en bas 5s", 1 ),
+(3, 10, "pompes rapides", 1 ),
+(4, 5, "coups de pieds latéraux jambe droite", 1),
+(5, 5, "coups de pieds latéraux jambe gauche", 1),
+(6, 10, "fentes rapides", 1 ),
+(7, 5, "fente reste en bas 5s", 1 ),
+(8, 5, "Combat libre", 10),
+(9, 5, "Boxe", 10),
+(10, 10, "Enchainements 1-2-3", 10),
+(11, 10, "Tambô - bâton court" , 14),
+(12, 10, "Tantô - poignard", 14 ),
+(13, 10, "Bôkken - sabre de bois", 14 ),
+(14, 10, "Daïto - sabre long" , 14),
+(15, 10, "Kata Happoken Shodan", 13 ),
+(15, 10, "Kata Happoken Nidan", 13 ),
+(16, 10, "kotekudakoss", 4 ),
+(17, 10, "kotekudakun", 4 ),
+(18, 5, "kotekudakiii", 4 ),
+(19, 5, "kotekudakiii", 4 ),
+(19, 5, "Hiji Gatame", 4 ),
+(19, 5, "Kote Oli Gatame", 4 ),
+(19, 5, "Hiji Kudaki", 2 ),
+(17, 10, "Tenbin Nage", 2 ),
+(18, 5, "Hiji Gaeshi", 2 ),
+(19, 5, "Do Gaeshi Sutemi", 3 ),
+(19, 5, "Kakae do gaeshi", 3 ),
+(19, 5, "Tate Osae", 5 ),
+(19, 5, "Kami Osae", 5 ),
+(19, 5, "Kesa Osae", 5 ),
+(19, 5, "Hadaka Jime", 6 ),
+(19, 5, "Sankaku Jime", 6 ),
+(19, 5, "Eli Jime", 6 )
+;
+
+getAction:
+SELECT *
+FROM Actions;

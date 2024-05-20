@@ -1,0 +1,22 @@
+CREATE TABLE ActionsType (
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL);
+
+INSERT INTO ActionsType (id, name)
+VALUES (1,  "Renforcement musculaire"),
+(2,  "Clés - KANSETSU WAZA"),
+(3, "Projections - NAGE WAZA"),
+(4, "Contrôle avec clé - KATAME WAZA"),
+(5, "Lutte au sol / Immobilisation au sol - OSAE WAZA"),
+(6, "Étranglement - SHIME WAZA"),
+(7, "Déplacements - TAI SABAKI"),
+(8, "Coups de poing - TSUKI UTCHI WAZA"),
+(9, "Coups de pied - KELI WAZA"),
+(10, "Percussions"),
+(13, "Katas - enchaînements"),
+(14, "Kobudo - armes traditionnelles");
+
+getActionType:
+SELECT *
+FROM ActionsType
+WHERE id = :id;
