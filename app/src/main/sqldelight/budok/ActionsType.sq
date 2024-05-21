@@ -1,8 +1,8 @@
 CREATE TABLE ActionsType (
-  id INTEGER PRIMARY KEY NOT NULL,
+  action_type_id INTEGER PRIMARY KEY NOT NULL,
   name TEXT NOT NULL);
 
-INSERT INTO ActionsType (id, name)
+INSERT INTO ActionsType (action_type_id, name)
 VALUES (1,  "Renforcement musculaire"),
 (2,  "Clés - KANSETSU WAZA"),
 (3, "Projections - NAGE WAZA"),
@@ -19,4 +19,4 @@ VALUES (1,  "Renforcement musculaire"),
 getActionType:
 SELECT *
 FROM ActionsType
-WHERE id = :id;
+WHERE action_type_id = :id;

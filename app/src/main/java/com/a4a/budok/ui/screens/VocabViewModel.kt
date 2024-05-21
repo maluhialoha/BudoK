@@ -4,31 +4,33 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.a4a.budok.data.Action
-import com.a4a.budok.data.ActionsDataSource
+import com.a4a.budok.data.Vocab
+import com.a4a.budok.data.VocabDataSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MyViewModel @Inject constructor(
-    private val actionsDataSource: ActionsDataSource,
+class VocabViewModel @Inject constructor(
+    private val dataSource: VocabDataSource,
 ) : ViewModel() {
     private var fetchJob: Job? = null
 
-    private val _uiState = mutableStateOf(listOf<Action>())
-    val uiState: State<List<Action>> = _uiState
+    private val _uiState = mutableStateOf(listOf<Vocab>())
+    val uiState: State<List<Vocab>> = _uiState
 
     init {
-        fetchActions()
+        _uiState.value = dataSource.fetchAllVocabulary()
+
+        //fetchAll()
     }
 
-    private fun fetchActions() {
+    private fun fetchAll() {
         fetchJob?.cancel()
         fetchJob = viewModelScope.launch {
             try {
-                _uiState.value = actionsDataSource.fetchAllActions()
+                _uiState.value = dataSource.fetchAllVocabulary()
             } catch (e: Exception) {
                 println("Fetching products failed with exception: ${e.localizedMessage}")
             }

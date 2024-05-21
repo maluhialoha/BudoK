@@ -25,6 +25,9 @@ fun NavGraph(navController: NavHostController) {
         sequenceCreation(
             navController = navController
         )
+        vocab(
+            navController = navController
+        )
     }
 }
 

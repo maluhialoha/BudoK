@@ -1,7 +1,7 @@
 package com.a4a.budok.data
 
+import budok.Actions
 import com.a4a.budok.Database
-import testdocumentwithseveralpages.Actions
 
 class ActionsDataSource(
     db: Database,
@@ -9,7 +9,7 @@ class ActionsDataSource(
     private val actionsQueries = db.actionsQueries
 
     fun fetchAllActions(): List<Action> {
-        return actionsQueries.getAction()
+        return actionsQueries.getActions()
             .executeAsList()
             .map { it.transformIntoEditableAction() }
     }

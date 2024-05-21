@@ -3,4 +3,6 @@
     <string name="appbar_create_sequence">Création séance</string>
     <string name="appbar_save_sequence">Mes séances</string>
     <string name="appbar_vocabulary">語彙</string>
+    <string name="sequence_page_title">Programme</string>
+    <string name="vocab_page_title">Vocabulaire</string>
 </resources>

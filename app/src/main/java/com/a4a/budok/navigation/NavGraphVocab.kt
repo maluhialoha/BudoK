@@ -5,21 +5,21 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.a4a.budok.SequenceCreation
-import com.a4a.budok.ui.screens.SequenceCreationViewModel
+import com.a4a.budok.Vocabulary
+import com.a4a.budok.ui.screens.VocabViewModel
 
-fun NavGraphBuilder.sequenceCreation(
+fun NavGraphBuilder.vocab(
     navController: NavHostController
 ) {
     composable(
-        route = Screen.SequenceCreation.name
+        route = Screen.Vocabulary.name
     ) { backStackEntry ->
-        val viewModel: SequenceCreationViewModel = hiltViewModel()
-        val actions by viewModel.uiState
+        val viewModel: VocabViewModel = hiltViewModel()
+        val vocab by viewModel.uiState
 
-        SequenceCreation (
+       Vocabulary (
             navController = navController,
-            uiState = actions
+            uiState = vocab
         )
     }
 }

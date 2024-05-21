@@ -5,6 +5,7 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.a4a.budok.data.ActionsDataSource
 import com.a4a.budok.Database
+import com.a4a.budok.data.VocabDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,5 +30,11 @@ object AppModule {
     @Singleton
     fun provideActionDataSource(driver: SqlDriver): ActionsDataSource {
         return ActionsDataSource(Database(driver))
+    }
+
+    @Provides
+    @Singleton
+    fun provideVocabDataSource(driver: SqlDriver): VocabDataSource {
+        return VocabDataSource(Database(driver))
     }
 }
